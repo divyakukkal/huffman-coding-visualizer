@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huffman Coding Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>🌲 Huffman Coding Visualizer</h1>
+    <p class="subtitle">Type text, watch a greedy algorithm build a binary tree, and see it actually compress your data</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <label for="textInput">Enter some text</label>
+      <textarea id="textInput" rows="3" placeholder="Type or paste text here... try something with repeated letters!">the quick brown fox jumps over the lazy dog</textarea>
+      <button id="compressBtn">⚡ Build Huffman Tree</button>
+    </section>
+
+    <section id="resultsSection" class="hidden">
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-label">Original size</span>
+          <span class="stat-value" id="originalBits">–</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Compressed size</span>
+          <span class="stat-value" id="compressedBits">–</span>
+        </div>
+        <div class="stat-card highlight">
+          <span class="stat-label">Space saved</span>
+          <span class="stat-value" id="savedPercent">–</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🔤 Generated Codes</h2>
+        <p class="hint">Frequent characters get short codes, rare ones get long codes — that's the whole trick.</p>
+        <div id="codesTable" class="codes-table"></div>
+      </div>
+
+      <div class="card">
+        <h2>🌳 The Huffman Tree</h2>
+        <p class="hint">Left branch = 0, right branch = 1. Follow a path from root to a letter to get its code.</p>
+        <div id="treeContainer" class="tree-container"></div>
+      </div>
+
+      <div class="card">
+        <h2>✅ Verification</h2>
+        <p class="hint">The compressed bits, decoded back — should exactly match your original text.</p>
+        <div id="verifyResult" class="verify-result"></div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
